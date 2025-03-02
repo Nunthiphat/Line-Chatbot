@@ -49,4 +49,5 @@ def handle_message(event):
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_message))
 
 if __name__ == "__main__":
-    app.run(port=5000, debug=True)
+    port = int(os.environ.get("PORT", 8000))  # ใช้ PORT ที่ Railway กำหนด
+    app.run(host="0.0.0.0", port=port, debug=True)
